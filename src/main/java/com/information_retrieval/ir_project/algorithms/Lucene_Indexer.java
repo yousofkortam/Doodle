@@ -8,7 +8,6 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,7 +16,7 @@ import java.io.IOException;
 public class Lucene_Indexer {
 
 public static void Indexer() throws IOException{
-    String cisiPath = "C:\\Users\\Abdo\\IR_Project\\archive/CISI.ALL";
+    String cisiPath = com.information_retrieval.ir_project.Directory.ARCHIVE_PATH + "CISI.ALL";
     String indexDir = "indexDir";
 
     Directory indexDirct = FSDirectory.open(new File(indexDir));
