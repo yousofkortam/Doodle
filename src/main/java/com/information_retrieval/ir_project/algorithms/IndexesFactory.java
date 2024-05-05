@@ -1,5 +1,7 @@
 package com.information_retrieval.ir_project.algorithms;
 
+import com.information_retrieval.ir_project.Directory;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,7 +20,7 @@ public class IndexesFactory {
             return biwordIndex;
         }else{
             try{
-                biwordIndex=IndexesRepository.loadBywordIndexFromFile("C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\biword.txt");
+                biwordIndex=IndexesRepository.loadBywordIndexFromFile(Directory.ARCHIVE_PATH + "/biword.txt");
             }catch (Exception ex){
                 System.out.println(ex);
             }
@@ -29,7 +31,7 @@ public class IndexesFactory {
     public static void setByWordIndex(String [] documents){
         biwordIndex= BywordIndex.buildIndex(documents);
         try {
-            IndexesRepository.saveByWordIndexToFile("C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\biword.txt", biwordIndex);
+            IndexesRepository.saveByWordIndexToFile(Directory.ARCHIVE_PATH + "biword.txt", biwordIndex);
         }catch (Exception ex){
             System.out.println(ex);
         }
@@ -38,7 +40,7 @@ public class IndexesFactory {
         if(incidenceMatrix !=null)
             return incidenceMatrix;
         try {
-            incidenceMatrix = IndexesRepository.readIncidenceMatrixFromFile("C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\IncidenceMatrix.txt");
+            incidenceMatrix = IndexesRepository.readIncidenceMatrixFromFile(Directory.ARCHIVE_PATH + "IncidenceMatrix.txt");
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -49,7 +51,7 @@ public class IndexesFactory {
     public static Map<String ,List<Boolean>> setIncidenceMatrix(List<List<String>>documents){
         incidenceMatrix=IncidenceMatrix.createMatrix(documents);
         try {
-            IndexesRepository.writeIncidenceMatrixToFile(incidenceMatrix, "C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\IncidenceMatrix.txt");
+            IndexesRepository.writeIncidenceMatrixToFile(incidenceMatrix, Directory.ARCHIVE_PATH + "IncidenceMatrix.txt");
         }catch (Exception ex){
             System.out.println(ex);
         }
@@ -59,7 +61,7 @@ public class IndexesFactory {
         if(invertedIndex !=null)
             return invertedIndex;
         try {
-            invertedIndex = IndexesRepository.readInvertedIndexFromFile("C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\InvertedIndex.txt");
+            invertedIndex = IndexesRepository.readInvertedIndexFromFile(Directory.ARCHIVE_PATH + "InvertedIndex.txt");
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -69,7 +71,7 @@ public class IndexesFactory {
     public static Map<String, List<Integer>> setInvertedIndex(List<List<String>>documents){
         invertedIndex=InvertedIndex.createInvertedIndex(documents);
         try{
-            IndexesRepository.writeInvertedIndexToFile(invertedIndex,"C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\InvertedIndex.txt");
+            IndexesRepository.writeInvertedIndexToFile(invertedIndex,Directory.ARCHIVE_PATH + "InvertedIndex.txt");
         }catch (Exception ex){
             System.out.println(ex);
         }
@@ -80,7 +82,7 @@ public class IndexesFactory {
         if(positionalindex !=null)
             return positionalindex;
         try {
-            positionalindex = IndexesRepository.readIndexFromFile("C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\positionalIndex.txt");
+            positionalindex = IndexesRepository.readIndexFromFile(Directory.ARCHIVE_PATH + "positionalIndex.txt");
         } catch (Exception ex) {
             System.out.println("read excption");
         }
@@ -90,7 +92,7 @@ public class IndexesFactory {
     public static Map<String, Map<Integer, List<Integer>>> setPositionalIndex(List<List<String>>documents){
         positionalindex = positionalIndex.positionalIndexAlgorithm(documents);
         try{
-            IndexesRepository.writepositionalIndexFromFile(positionalindex,"C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\positionalIndex.txt");
+            IndexesRepository.writepositionalIndexFromFile(positionalindex,Directory.ARCHIVE_PATH + "positionalIndex.txt");
         }catch (Exception ex){
             System.out.println(ex);
         }

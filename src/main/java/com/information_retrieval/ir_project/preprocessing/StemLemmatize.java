@@ -4,6 +4,7 @@ package com.information_retrieval.ir_project.preprocessing;
 
 
 
+import com.information_retrieval.ir_project.Directory;
 import opennlp.tools.lemmatizer.DictionaryLemmatizer;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
@@ -23,11 +24,11 @@ public class StemLemmatize {
             tokens[count++]=inputToken;
         }
 
-        InputStream inputStreamPOSTagger = new FileInputStream("C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\en-pos-maxent.bin");
+        InputStream inputStreamPOSTagger = new FileInputStream(Directory.ARCHIVE_PATH + "en-pos-maxent.bin");
         POSModel posModel = new POSModel(inputStreamPOSTagger);
         POSTaggerME posTagger = new POSTaggerME(posModel);
         String tags[] = posTagger.tag(tokens);
-        InputStream dictLemmatizer = new FileInputStream("C:\\Users\\Abdo\\Desktop\\Ir\\Information-Retrieval-Project\\archive\\en-lemmatizer.dict");
+        InputStream dictLemmatizer = new FileInputStream(Directory.ARCHIVE_PATH + "en-lemmatizer.dict");
         DictionaryLemmatizer lemmatizer = new DictionaryLemmatizer(
                 dictLemmatizer);
         String[] lemmas = lemmatizer.lemmatize(tokens, tags);
