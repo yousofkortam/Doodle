@@ -40,7 +40,5 @@ public class Lucene_Searcher {
         reader.close();
         return  indexIds;
     }
-   /* public static void main(String[] args) throws IOException, ParseException {
-        searcher("Give");
-    }*/
+
 }
