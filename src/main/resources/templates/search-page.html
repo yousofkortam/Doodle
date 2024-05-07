@@ -3,26 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>IR Project | Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/search.css}">
-    <style>
-        .search-container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-result {
-            margin-top: 20px;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-        }
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,57 +15,57 @@
     <a class="navbar-brand" href="/indexer">Indexer</a>
 </nav>
 
-<div class="container">
-    <div class="search-container">
+<div class="container w-50">
+    <div class="search-container mt-5">
         <form action="/search" method="post">
-            <div class="form-group">
-                <label for="professionalSelect">Choose index:</label>
-                <select class="custom-select" id="professionalSelect" name="indexType">
-                    <option value="Lucene">Lucene</option>
-                    <option value="Term-document">Term-document</option>
-                    <option value="Incidence-matrix">Incidence-matrix</option>
-                    <option value="Inverted-index">Inverted-index</option>
-                    <option value="Positional-index">Positional-index</option>
-                    <option value="Bi-word-index">Bi-word-index</option>
-                </select>
+            <div class="container">
+                <div class="form-group">
+                    <label for="professionalSelect">Choose index:</label>
+                    <select class="custom-select" id="professionalSelect" name="indexType">
+                        <option value="Lucene">Lucene</option>
+                        <option value="Term-document">Term-document</option>
+                        <option value="Incidence-matrix">Incidence-matrix</option>
+                        <option value="Inverted-index">Inverted-index</option>
+                        <option value="Positional-index">Positional-index</option>
+                        <option value="Bi-word-index">Bi-word-index</option>
+                    </select>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="true" id="normalization" name="normalization">
+                    <label class="form-check-label" for="normalization">Normalization</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="true" id="steaming" name="steaming">
+                    <label class="form-check-label" for="steaming">Steaming</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="true" id="lemetization" name="lemetization">
+                    <label class="form-check-label" for="lemetization">Lemetization</label>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="true" id="normalization" name="normalization">
-                <label class="form-check-label" for="normalization">Normalization</label>
+            <div class="container mt-4">
+                <h1 class="logo">
+                    <span class="g">D</span>
+                    <span class="o1">o</span>
+                    <span class="o2">o</span>
+                    <span class="g">d</span>
+                    <span class="l">l</span>
+                    <span class="e">e</span>
+                </h1>
+                <label for="searchText"></label><input type="text" class="form-control search-input" id="searchText"
+                                                       placeholder="   Enter your search text" name="searchText">
+                <div class="button-container mt-2">
+                    <button type="submit" class="btn btn-primary mt-2 search-btn">Search</button>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="true" id="steaming" name="steaming">
-                <label class="form-check-label" for="steaming">Steaming</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="true" id="lemetization" name="lemetization">
-                <label class="form-check-label" for="lemetization">Lemetization</label>
-            </div>
-            <h1 class="logo mb-4">
-                <span class="g">D</span>
-                <span class="o1">o</span>
-                <span class="o2">o</span>
-                <span class="g">d</span>
-                <span class="l">l</span>
-                <span class="e">e</span>
-            </h1>
-            <label for="searchText"></label><input type="text" class="form-control" id="searchText"
-                                                   placeholder="Enter your search text" name="searchText">
-            <button type="submit" class="btn btn-primary mt-2 search-btn">Search</button>
         </form>
     </div>
 
-    <div th:if="${result != null}" class="search-result">
+    <div class="container search-result" th:if="${result != null}">
         <h2>Search Result</h2>
         <div th:text="${result}"></div>
     </div>
 </div>
-
-<footer class="footer mt-auto py-3 bg-light">
-    <div class="container p-3">
-        <span class="text-muted">© 2024 IR Project. All rights reserved. FCI-Mu University</span>
-    </div>
-</footer>
 
 </body>
 </html>
