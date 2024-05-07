@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class SearchController {
@@ -38,7 +40,7 @@ public class SearchController {
         model.addAttribute("indexType", indexType);
         model.addAttribute("searchText", searchText);
         model.addAttribute("result", result);
-        return "search-page"; // Return the same view
+        return "search-page";
     }
 
 
