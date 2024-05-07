@@ -9,10 +9,16 @@ public class Preprocessing {
             boolean stopWords, boolean normalization, boolean Stemming, boolean lemma) throws Exception {
         TextCleaning textCleaning = new TextCleaning();
         ArrayList<String> tokens = textCleaning.Tokenization(str);
-        if(stopWords)
-            tokens=textCleaning.stopWords(tokens);
+//        System.out.println("String before token : " + str);
+        System.out.println("=======>String after token: " + tokens);
+        if(stopWords) {
+            tokens = textCleaning.stopWords(tokens);
+            System.out.println("======>Stop Words :" + tokens);
+        }
+
         if (normalization) {
             tokens = textCleaning.normailzation(tokens);
+            System.out.println("=========>Normalization :" + tokens);
         }
         if(Stemming){
             PorterStemmer stemmer = new PorterStemmer();
@@ -24,20 +30,15 @@ public class Preprocessing {
                stemOut.add(out);
           }
           tokens=stemOut;
+            System.out.println("Steaming : " + tokens);
         }
         if(lemma){
              tokens=StemLemmatize.lemmatizeTokens(tokens);
+            System.out.println("========>Lemmatization : " + tokens);
         }
         tokens.removeIf((String x)->x.equals("O"));
         return tokens;
     }
 
-    /*
-     * Tokenization ✅
-     * StopWords ✅
-     * Normalization ✅
-     * Stemming ✅
-     * Lemma ✅
-     * */
 }
 
