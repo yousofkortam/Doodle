@@ -17,7 +17,7 @@ import java.io.IOException;
 public class Lucene_Indexer {
 
     public static void Indexer() throws IOException {
-        String cisiPath = com.information_retrieval.ir_project.Directory.ARCHIVE_PATH + "CISI.ALL";
+        String cisiPath = com.information_retrieval.ir_project.Directory.ARCHIVE_PATH + "/CISI.ALL";
         String indexDir = "indexDir";
 
         Directory indexDirct = FSDirectory.open(new File(indexDir));
