@@ -10,9 +10,6 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Tests](#tests)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Description
 
