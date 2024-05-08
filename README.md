@@ -9,7 +9,6 @@
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Tests](#tests)
 
 ## Description
 
